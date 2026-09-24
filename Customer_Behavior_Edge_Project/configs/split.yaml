@@ -1,0 +1,36 @@
+# Quy tắc chia train/val/test. Chia theo SEQUENCE / SUBJECT / NGÀY, không chia theo frame.
+seed: 42
+
+tracking:
+  MOT17:
+    # Chỉ dùng biến thể FRCNN để tránh trùng frame giữa DPM/FRCNN/SDP
+    detector_variant: FRCNN
+    train: [MOT17-02, MOT17-04, MOT17-05, MOT17-10, MOT17-13]
+    val:   [MOT17-09, MOT17-11]      # cảnh trong nhà / trung tâm thương mại
+    test:  []                        # test chính thức không có nhãn, giữ ở raw/
+  MOT20:
+    train: [MOT20-01, MOT20-02]
+    val:   [MOT20-03, MOT20-05]
+    test:  []
+  CAVIAR:
+    # Tỉ lệ khi chia ngẫu nhiên theo sequence với seed cố định
+    ratio: {train: 0.7, val: 0.15, test: 0.15}
+
+detection:
+  frame_stride: 5           # lấy 1 frame mỗi 5 frame từ dữ liệu tracking để làm ảnh detection
+  min_visibility: 0.25      # bỏ box bị che > 75 %
+  min_box_size: 8           # pixel
+  class_names: [person]
+
+action:
+  MERL:
+    # Protocol gốc của MERL: chia theo subject (người tham gia)
+    train_subjects: 60
+    val_subjects: 9
+    test_subjects: 37
+    clip_len: 32
+
+trajectory:
+  ATC:
+    ratio_by_day: {train: 0.7, val: 0.15, test: 0.15}
+    resample_hz: 5

@@ -1,0 +1,23 @@
+# Giai đoạn chuẩn bị dữ liệu (G0)
+numpy>=1.26
+pandas>=2.0
+pyyaml>=6.0
+opencv-python-headless>=4.9
+pillow>=10.0
+tqdm>=4.66
+requests>=2.31
+
+# Huấn luyện / export model (G1–G4) – cài khi bước 4 bắt đầu
+# ultralytics>=8.3
+# onnx>=1.16
+# onnxruntime>=1.18
+# torch>=2.3
+
+# Edge app (G5)
+# fastapi>=0.111
+# uvicorn>=0.30
+# streamlit>=1.35
+# paho-mqtt>=2.0
+
+# Kiểm thử
+pytest>=8.0
