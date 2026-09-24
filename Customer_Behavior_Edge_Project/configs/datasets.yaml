@@ -1,0 +1,66 @@
+# Cấu hình nguồn dữ liệu. Đường dẫn tương đối tính từ thư mục Customer_Behavior_Edge_Project/.
+root: data
+
+datasets:
+  MOT17:
+    enabled: true
+    task: [tracking, detection]
+    url: https://motchallenge.net/data/MOT17.zip
+    dest: raw/MOT17
+    license: CC BY-NC-SA 3.0 (research only)
+    notes: Zip ~5.5 GB. Tải bằng trình duyệt nếu bị chặn.
+
+  MOT20:
+    enabled: false
+    task: [tracking]
+    url: https://motchallenge.net/data/MOT20.zip
+    dest: raw/MOT20
+    license: CC BY-NC-SA 3.0 (research only)
+
+  CrowdHuman:
+    enabled: true
+    task: [detection]
+    url: https://huggingface.co/datasets/sshao0516/CrowdHuman
+    dest: raw/CrowdHuman
+    license: Non-commercial research
+    notes: >
+      Tải CrowdHuman_train01..03.zip, CrowdHuman_val.zip, annotation_train.odgt,
+      annotation_val.odgt (trang chủ crowdhuman.org hoặc mirror Hugging Face).
+
+  MERL_Shopping:
+    enabled: true
+    task: [action]
+    url: https://www.merl.com/research/downloads/MERL_Shopping_Dataset
+    dest: raw/MERL_Shopping
+    license: MERL research license (phải chấp nhận điều khoản)
+    notes: Tải thủ công sau khi đồng ý điều khoản; giải nén vào dest.
+
+  CAVIAR:
+    enabled: true
+    task: [tracking, trajectory]
+    url: https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/
+    dest: raw/CAVIAR
+    license: Free for research
+    notes: Chỉ tải nhóm "Shopping Centre in Lisbon" (26 sequence, 2 góc nhìn) + ground truth XML.
+
+  ATC:
+    enabled: true
+    task: [trajectory]
+    url: https://dil.atr.jp/crest2010_HRI/ATC_dataset/
+    dest: raw/ATC
+    license: Research only
+    notes: Tải các file CSV mẫu (mỗi ngày một file) vào dest/.
+
+  RetailS:
+    enabled: false
+    task: [anomaly]
+    url: https://github.com/TeCSAR-UNCC/RetailS
+    dest: raw/RetailS
+    license: Chưa ghi rõ – liên hệ tác giả
+
+  WiderPerson:
+    enabled: false
+    task: [detection]
+    url: http://www.cbsr.ia.ac.cn/users/sfzhang/WiderPerson/
+    dest: raw/WiderPerson
+    license: Research only
